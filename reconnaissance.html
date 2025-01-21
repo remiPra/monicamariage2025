@@ -1,0 +1,68 @@
+
+remi PRADERE <remipradere@gmail.com>
+20:02 (il y a 37 minutes)
+À moi
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Whisper Speech-to-Text en continu</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+    <h1>Transcription continue avec Whisper API</h1>
+    <button id="start">Commencer la transcription continue</button>
+    <p id="transcription">Transcription : <span id="output"></span></p>
+
+    <script>
+        const startButton = document.getElementById('start');
+        const output = document.getElementById('output');
+
+        async function startRecognition() {
+            // Demander la permission pour utiliser le microphone
+            const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+            const mediaRecorder = new MediaRecorder(stream);
+            const audioChunks = [];
+
+            mediaRecorder.ondataavailable = (event) => {
+                audioChunks.push(event.data);
+            };
+
+            mediaRecorder.onstop = async () => {
+                const audioBlob = new Blob(audioChunks, { type: 'audio/wav' });
+                const formData = new FormData();
+                formData.append('file', audioBlob, 'audio.wav');
+                formData.append('model', 'whisper-large-v3-turbo');  // Spécifier le modèle Whisper
+
+                // Envoi à Whisper API
+                try {
+                    const response = await axios.post('https://api.groq.com/openai/v1/audio/transcriptions', formData, {
+                        headers: {
+                            'Authorization': `Bearer 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`,
+                            'Content-Type': 'multipart/form-data'
+                        }
+                    });
+                    output.textContent = response.data.text;
+                } catch (error) {
+                    console.error('Erreur lors de la transcription :', error);
+                }
+
+                // Recommencer l'enregistrement pour la reconnaissance vocale continue
+                startRecognition();
+            };
+
+            // Démarrer l'enregistrement
+            mediaRecorder.start();
+            setTimeout(() => {
+                mediaRecorder.stop();  // Arrêter après 5 secondes
+            }, 5000);
+        }
+
+        startButton.addEventListener('click', () => {
+            startRecognition();  // Lancer la reconnaissance vocale continue
+        });
+    </script>
+</body>
+</html>

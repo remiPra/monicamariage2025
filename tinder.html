@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Swiper demo avec images et texte</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
+    
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        
+        height: 100vh;
+        margin: 0;
+        background-color: #f0f0f0;
+      }
+  
+      swiper-container {
+        width: 30vw;
+        height: 70vh;
+        max-width: 300px;
+        max-height: 700px;
+        margin-top: 70px;
+      }
+  
+      swiper-slide {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        border-radius: 18px;
+        font-size: 22px;
+        font-weight: bold;
+        color: #fff;
+        background: #fff;
+      }
+  
+      swiper-slide img {
+        width: 100%;
+        height: 80%;
+        object-fit: cover;
+        border-top-left-radius: 18px;
+        border-top-right-radius: 18px;
+      }
+  
+      .slide-content {
+        width: 100%;
+        padding: 20px;
+        background-color: white;
+        color: #333;
+        text-align: center;
+        border-bottom-left-radius: 18px;
+        border-bottom-right-radius: 18px;
+      }
+  
+      .tinder-buttons {
+        margin-top: 20px;
+        width: 100%;
+        justify-content: center;
+        display: flex;
+      }
+  
+      .tinder-button {
+        font-size: 24px;
+        padding: 10px 20px;
+        margin: 0 10px;
+        border: none;
+        border-radius: 50%;
+        cursor: pointer;
+      }
+  
+      .cancel-button {
+        background-color: #ff4757;
+        color: white;
+      }
+  
+      .heart-button {
+        background-color: #2ed573;
+        color: white;
+      }
+
+      .fenetre {
+        display: block;
+        justify-content: center;
+      }
+    </style>
+  </head>
+
+<body>
+    <div class="fenetre">
+  <swiper-container class="mySwiper" keyboard="true" effect="cards" grab-cursor="true">
+    <swiper-slide>
+      <img src="image11.webp" alt="Image 1">
+      <div class="slide-content">Slide 1</div>
+    </swiper-slide>
+    <swiper-slide>
+      <img src="image12.webp" alt="Image 2">
+      <div class="slide-content">Slide 2</div>
+    </swiper-slide>
+    <swiper-slide>
+      <img src="image13.webp" alt="Image 3">
+      <div class="slide-content">Slide 3</div>
+    </swiper-slide>
+    <swiper-slide>
+      <img src="https://picsum.photos/300/300?random=4" alt="Image 4">
+      <div class="slide-content">Slide 4</div>
+    </swiper-slide>
+    <swiper-slide>
+      <img src="https://picsum.photos/300/300?random=5" alt="Image 5">
+      <div class="slide-content">Slide 5</div>
+    </swiper-slide>
+    <swiper-slide>
+      <img src="https://picsum.photos/300/300?random=6" alt="Image 6">
+      <div class="slide-content">Slide 6</div>
+    </swiper-slide>
+    <swiper-slide>
+      <img src="https://picsum.photos/300/300?random=7" alt="Image 7">
+      <div class="slide-content">Slide 7</div>
+    </swiper-slide>
+    <swiper-slide>
+      <img src="https://picsum.photos/300/300?random=8" alt="Image 8">
+      <div class="slide-content">Slide 8</div>
+    </swiper-slide>
+    <swiper-slide>
+      <img src="https://picsum.photos/300/300?random=9" alt="Image 9">
+      <div class="slide-content">Slide 9</div>
+    </swiper-slide>
+  </swiper-container>
+
+  <div class="tinder-buttons">
+    <button class="tinder-button cancel-button">❌</button>
+    <button class="tinder-button heart-button">❤️</button>
+  </div>
+</div>
+
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const swiper = document.querySelector('swiper-container').swiper;
+      const heartButton = document.querySelector('.heart-button');
+      const cancelButton = document.querySelector('.cancel-button');
+
+      function nextSlide() {
+        if (swiper.isEnd) {
+          swiper.slideTo(0); // Retour au début si c'est la dernière slide
+        } else {
+          swiper.slideNext();
+        }
+      }
+
+      heartButton.addEventListener('click', function() {
+        console.log('Liked!');
+        nextSlide();
+      });
+
+      cancelButton.addEventListener('click', function() {
+        console.log('Nope!');
+        nextSlide();
+      });
+    });
+  </script>
+</body>
+
+</html>

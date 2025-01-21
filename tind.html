@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8" />
+    <title>Swiper Tinder-like Demo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        .fenetre {
+            width: 300px;
+            height: 500px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        swiper-container {
+            width: 100%;
+            height: 450px;
+        }
+        swiper-slide {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            border-radius: 10px;
+            background: white;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        swiper-slide img {
+            width: 100%;
+            height: 80%;
+            object-fit: cover;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+        .slide-content {
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+            text-align: center;
+        }
+        .tinder-buttons {
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+            margin-top: 20px;
+        }
+        .tinder-button {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .cancel-button {
+            background-color: #ff4757;
+            color: white;
+        }
+        .heart-button {
+            background-color: #2ed573;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="fenetre">
+        <swiper-container class="mySwiper" effect="cards" grab-cursor="true">
+            <!-- Les slides seront ajoutées dynamiquement ici -->
+        </swiper-container>
+        <div class="tinder-buttons">
+            <button class="tinder-button cancel-button">❌</button>
+            <button class="tinder-button heart-button">❤️</button>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
+    <script>
+        let swiper;
+        let socket;
+        const userId = 'user_' + Math.random().toString(36).substr(2, 9); // Génère un ID utilisateur aléatoire
+
+        function initSwiper() {
+            swiper = document.querySelector('swiper-container').swiper;
+        }
+
+        function nextSlide() {
+            if (swiper.isEnd) {
+                swiper.slideTo(0);
+            } else {
+                swiper.slideNext();
+            }
+        }
+
+        function connectWebSocket() {
+            socket = io('http://localhost:3001'); // Assurez-vous que le port correspond à votre serveur
+
+            socket.on('connect', () => {
+                console.log('Connecté au serveur WebSocket');
+                socket.emit('join', userId);
+                getFavorites();
+            });
+
+            socket.on('chat message', (msg) => {
+                console.log('Message reçu:', msg);
+                // Ici, vous pouvez traiter les messages reçus si nécessaire
+            });
+        }
+
+        function getFavorites() {
+            // Simulons la récupération des favoris
+            // Dans un cas réel, vous enverriez une requête au serveur
+            const fakeFavorites = [
+                { image: 'https://picsum.photos/300/400?random=1', name: 'Robe 1' },
+                { image: 'https://picsum.photos/300/400?random=2', name: 'Robe 2' },
+                { image: 'https://picsum.photos/300/400?random=3', name: 'Robe 3' },
+            ];
+            updateSlider(fakeFavorites);
+        }
+
+        function updateSlider(favorites) {
+            const swiperContainer = document.querySelector('swiper-container');
+            swiperContainer.innerHTML = favorites.map(favorite => `
+                <swiper-slide>
+                    <img src="${favorite.image}" alt="${favorite.name}">
+                    <div class="slide-content">${favorite.name}</div>
+                </swiper-slide>
+            `).join('');
+
+            initSwiper();
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            connectWebSocket();
+
+            const heartButton = document.querySelector('.heart-button');
+            const cancelButton = document.querySelector('.cancel-button');
+
+            heartButton.addEventListener('click', function() {
+                socket.emit('chat message', { userId: userId, text: 'Liked: ' + swiper.activeIndex });
+                nextSlide();
+            });
+
+            cancelButton.addEventListener('click', function() {
+                socket.emit('chat message', { userId: userId, text: 'Disliked: ' + swiper.activeIndex });
+                nextSlide();
+            });
+        });
+    </script>
+</body>
+</html>

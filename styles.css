@@ -1,0 +1,139 @@
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+}
+
+body {
+    background: #916161;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+}
+h1 , h2 {
+    color: black;
+}
+
+.tinder {
+    width: 100%;
+    max-width: 360px;
+    height: 600px;
+}
+
+.tinder--cards {
+    flex-grow: 1;
+    padding-top: 40px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    z-index: 1;
+}
+
+.tinder--card {
+    display: inline-block;
+    width: 90%;
+    max-width: 340px;
+    height: 500px;
+    background: #ffffff;
+    padding-bottom: 40px;
+    border-radius: 8px;
+    overflow: hidden;
+    position: absolute;
+    will-change: transform;
+    transition: all 0.3s ease-in-out;
+    cursor: -webkit-grab;
+    cursor: -moz-grab;
+    cursor: grab;
+}
+
+.tinder--card img {
+    max-width: 100%;
+    pointer-events: none;
+}
+
+.tinder--card h3 {
+    margin-top: 32px;
+    font-size: 32px;
+    padding: 0 16px;
+    pointer-events: none;
+}
+
+.tinder--card p {
+    margin-top: 24px;
+    font-size: 20px;
+    padding: 0 16px;
+    pointer-events: none;
+}
+
+.tinder--buttons {
+    flex: 0 0 100px;
+    text-align: center;
+    padding-top: 20px;
+}
+
+.tinder--buttons button {
+    border-radius: 50%;
+    line-height: 60px;
+    width: 60px;
+    border: 0;
+    background: #FFFFFF;
+    display: inline-block;
+    margin: 0 8px;
+}
+
+#nope {
+    color: #ff695b;
+}
+
+#love {
+    color: #42d142;
+}
+
+.tinder--card .nope {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: #ff695b;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+
+/* gallerie */
+.gallery {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 20px;
+}
+
+.gallery-item {
+    text-align: center;
+    margin: 10px;
+}
+
+.gallery-item img {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    object-fit: cover; /* Ajuste l'image pour qu'elle reste bien cadrée */
+    border-radius: 5px; /* Optionnel : arrondit légèrement les coins */
+}
+
+.gallery-item p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
+    margin-top: 10px;
+    color: #000;
+}
+    

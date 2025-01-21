@@ -1,0 +1,1044 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monica Mariage - Robes de mariées Toulouse</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+
+    <!-- Fichier CSS personnalisé -->
+    <style>
+        /* Réinitialisation de base */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #ffffff;
+}
+
+/* tailwind css */
+.flex {
+display: flex;
+} 
+.justify-content {
+justify-content: center;
+} 
+.w-full {
+width: 100%;
+}
+.text-center {
+    text-align: center;
+}
+.bg-brown-light {
+    /* background: linear-gradient(to bottom, #FDE9E6     0%, #ecdbcd 100%); */
+    background: linear-gradient(to bottom, #ffffff     0%, #FDE9E6 100%);
+
+    /* background-color: #F5D2B5; */
+}
+
+
+
+/* Appliquer la police Playfair Display */
+h1, h2, h3, a {
+    /* font-family: 'Poppins', serif; */
+    font-family: 'Playfair Display', serif;
+}
+h1 {
+    color: #af7749;
+    font-family: 'Playfair Display', serif;
+}
+
+
+.logocolor {
+    color:"#af7749;"
+}
+.logocolor1 {
+    color:"#af7749;"
+}
+
+/* Navigation */
+.navigation {
+    height: 80px;
+    display: flex;
+    position: fixed;top: 0px;
+    width: 100%;
+    z-index: 33;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #FDE9E6; /* Rose pâle */
+
+}
+
+
+.nav-left, .nav-right {
+    display: flex;
+    list-style: none;
+}
+
+.nav-left li, .nav-right a {
+    margin-right: 20px;
+}
+
+.nav-left a, .nav-right a {
+    /* text-transform: uppercase; */
+    /* font-weight: bold; */
+    color: #af7749; /* Gris foncé */
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.nav-left a:hover, .nav-right a:hover {
+    color: #F5D2B5; /* Beige clair au hover */
+}
+
+/* Logo */
+.nav-logo {
+    text-align: center;
+}
+
+.logo-main {
+    font-size: 2rem;
+    font-weight: bold;
+    
+}
+
+.logo-sub {
+    font-size: 1rem;
+    color: #666; /* Gris plus clair */
+}
+
+
+/* Masquer le menu mobile par défaut sur les grands écrans */
+.navigation-mobile {
+    display: none;
+}
+
+
+
+
+
+/* bloc pagination */
+.categories {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 20px;
+    background-color: #fff;
+  }
+  
+  .category {
+    text-align: center;
+    width: 150px;
+  }
+  
+  .category img {
+    width: 105px; /* Adjust size of the icon */
+    height: auto;
+    margin-bottom: 10px;
+  }
+  
+  .category p {
+    font-family: 'Poppins', sans-serif; /* Or any font of your choice */
+    font-size: 16px;
+    color: #000;
+  }
+
+
+
+  /* presenttaion */
+  .presentation-section {
+    text-align: center;
+    padding: 50px 20px;
+    background: linear-gradient(to bottom, #FDE9E6     0%, #ffffff 100%);
+}
+.presentation-section img {
+    width: 150px;
+    border-radius: 50%;
+}
+
+.presentation-section h1 {
+    font-family: 'Cherilyn', sans-serif; /* Remplacer par la police de ton choix */
+    font-size: 36px;
+    font-weight: 600;
+    /* color: #000; */
+    color: #af7749;
+
+    margin-bottom: 30px;
+}
+
+.presentation-section p {
+    font-family: 'Poppins', sans-serif; /* Police pour le texte */
+    font-size: 18px;
+    color:black;
+    /* color:#c28452; */
+    line-height: 1.6;
+    max-width: 800px;
+    margin: 0 auto;
+    padding-bottom: 50px;
+}
+
+  
+
+/* Carrousel */
+.slider-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.swiper-slide {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+}
+
+.swiper-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Overlay */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(253, 233, 230, 0.1); /* Rose pâle avec opacité */
+    z-index: 1;
+}
+
+/* Texte du slider */
+.slider-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    color: white;
+    font-size: 3rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+/* Conteneur des vidéos */
+.video-container {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    margin-top: 80px;
+}
+
+.video-slide-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+}
+
+.video-slide {
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+    display: block;
+}
+
+.video-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    color: white;
+    font-size: 3rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    background-color: transparent;
+}
+
+
+
+/* boutton */
+.styled-button {
+    background-color: #af7749; /* Couleur primaire */
+    color: #fff; /* Texte blanc */
+    border: none; /* Retire la bordure par défaut */
+    padding: 12px 24px; /* Espacement interne pour agrandir le bouton */
+    border-radius: 8px; /* Coins arrondis */
+    font-family: 'Poppins', sans-serif; /* Police du texte */
+    font-size: 16px;
+    font-weight: 500;
+    max-width: 200px;
+    margin: auto;
+    cursor: pointer;
+    transition: all 0.3s ease; /* Transition pour le hover */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Box shadow pour effet d'ombre */
+    margin-bottom: 50px;
+}
+
+.styled-button:hover {
+    background-color: #925c36; /* Couleur plus foncée au hover */
+    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.2); /* Ombre plus marquée au hover */
+}
+
+
+
+/* gallery */
+/* Style du conteneur de la galerie */
+.gallery-container {
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 colonnes sur grands écrans */
+    gap: 20px;
+    width: 100%;
+    max-width: 1200px; /* Limite la largeur totale */
+}
+
+.gallery-item {
+    text-align: center;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 5px;
+    max-height: 600px; /* Ajuste la hauteur des images */
+}
+
+.gallery-item p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    margin-top: 10px;
+    color: #000;
+}
+
+/* Responsive pour les tablettes (écrans moyens) */
+@media (max-width: 768px) {
+    .gallery {
+        grid-template-columns: repeat(2, 1fr); /* 2 colonnes sur les écrans moyens */
+    }
+}
+
+/* Responsive pour les petits écrans (mobiles) */
+@media (max-width: 480px) {
+    .gallery {
+        grid-template-columns: 1fr; /* 1 colonne sur les petits écrans */
+    }
+}
+
+.bestsellers h2 {
+
+    padding-top: 50px;
+    color: #af7749;
+    font-size: 35px;
+    margin-bottom: 30px;
+}
+.textgallery {
+    display:flex;
+    flex-direction:column;
+
+}
+.textgallery p {
+    font-family: 'Poppins', sans-serif; /* Police pour le texte */
+    font-size: 18px;
+    color:black;
+    /* color:#c28452; */
+    line-height: 1.6;
+    max-width: 800px;
+    margin: 0 auto;
+    padding-bottom: 50px;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+/* 
+.textgallery button 
+{max-width: 100px;} */
+
+
+
+
+/* Media query pour les écrans plus petits (mobile friendly) */
+@media (max-width: 768px) {
+    
+     /* Masquer la navigation pour les grands écrans */
+     .navigation {
+        display: none;
+    }
+    
+    /* Afficher le menu mobile sur petit écran */
+    .navigation-mobile {
+        display: flex;
+        position: fixed;
+        top: 0px;
+        width: 100%;
+        z-index: 88;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 20px;
+        background-color: #fff;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .menu-icon {
+        cursor: pointer;
+    }
+
+    .hamburger-icon {
+        width: 30px;
+        height: 30px;
+        stroke: #925c36;
+    }
+
+    /* videos */
+    .video-container {
+        margin-top:0px
+    }
+}
+
+
+/* Section Showroom */
+.showroom-section {
+    /* padding: 50px; */
+    background-color: #f9f9f9; /* Couleur de fond pour la section */
+}
+
+.showroom-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* max-width: 1200px; */
+    margin: 0 auto;
+}
+
+/* Colonne Image */
+.showroom-image {
+    flex: 1;
+    margin-right: 20px;
+}
+
+.showroom-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+/* Colonne Texte */
+.showroom-text {
+    flex: 1;
+    
+}
+.padding-left {
+    padding-left: 50px;
+}
+.padding-right {
+    padding-right: 50px
+}
+.showroom-text h4 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    color: #999; /* Couleur pour le sous-titre */
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.showroom-text h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.showroom-text p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+/* Bouton */
+.btn {
+    background-color: #d0a895;
+    color: #fff;
+    padding: 12px 24px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #af7749; /* Changement de couleur au survol */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .showroom-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .showroom-image {
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+
+    .showroom-text {
+        padding-left: 0;
+    }
+}
+/* Footer général */
+.site-footer {
+    background-color: #925c36;
+    color: #fff; /* Texte blanc pour bien contraster */
+    padding: 40px 20px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+}
+
+/* Colonnes du footer */
+.footer-column {
+    flex: 1;
+    margin: 20px;
+}
+
+.footer-logo {
+    max-width: 150px;
+    margin-bottom: 20px;
+}
+
+.footer-column h4 {
+    font-size: 18px;
+    color: #af7749; /* Couleur de titre en doré/beige */
+    margin-bottom: 20px;
+}
+
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-column ul li {
+    margin-bottom: 10px;
+}
+
+.footer-column ul li a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-column ul li a:hover {
+    color: #af7749; /* Changement de couleur au survol */
+}
+
+/* Icônes de réseaux sociaux */
+.social-icons a {
+    margin-right: 10px;
+}
+
+.social-icons img {
+    width: 30px;
+    height: 30px;
+    filter: invert(100%); /* Pour passer les icônes en blanc */
+    transition: filter 0.3s ease;
+}
+
+.social-icons a:hover img {
+    filter: invert(60%) sepia(50%) saturate(200%) hue-rotate(-20deg); /* Changement de couleur au survol */
+}
+
+/* Footer Bottom (Copyright et mentions légales) */
+.footer-bottom {
+    text-align: center;
+    margin-top: 30px;
+    border-top: 1px solid #444;
+    padding-top: 20px;
+    font-size: 14px;
+}
+
+.footer-bottom a {
+    color: #af7749;
+    text-decoration: none;
+}
+
+.footer-bottom a:hover {
+    color: #fff;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-column {
+        margin: 20px 0;
+    }
+}
+
+/* footer */
+/* Icônes de réseaux sociaux */
+.social-icons {
+    display: flex;
+    gap: 15px; /* Espacement entre les icônes */
+}
+
+.social-icon {
+    color: #fff; /* Couleur de base des icônes */
+    font-size: 24px; /* Taille des icônes */
+    transition: color 0.3s ease;
+}
+
+.social-icon:hover {
+    color: #af7749; /* Couleur de survol */
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-column {
+        margin: 20px 0;
+    }
+}
+
+
+    </style>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+        <nav class="navigation">
+            <!-- Menu de gauche -->
+            <ul class="nav-left">
+                <li><a href="#">Robes de Mariée</a></li>
+                <li><a href="#">Tenues de Soirée</a></li>
+                <li><a href="#">Robes de Cortège</a></li>
+            </ul>
+
+            <!-- Logo du milieu -->
+            <div class="nav-logo">
+                <h1>
+                    <span class="logo-main logocolor">Monica</span>
+                    <span class="logo-sub logocolor1">Mariage</span>
+                </h1>
+            </div>
+
+            <!-- Menu de droite -->
+            <div class="nav-right">
+                <a href="#">Prendre Rendez-vous</a>
+                <a href="#">Trouver le showroom</a>
+                <button class="search-btn">
+                    <svg class="search-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path d="M21 21l-4.35-4.35M15 11a4 4 0 10-8 0 4 4 0 008 0z"></path>
+                    </svg>
+                </button>
+            </div>
+        </nav>
+        <nav class="navigation-mobile">
+            <!-- Logo à gauche -->
+            <div class="nav-logo">
+                <h1>
+                    <span class="logo-main">Monica</span>
+                    <span class="logo-sub">Mariage</span>
+                </h1>
+            </div>
+
+
+
+            <!-- Icône de menu (visible sur mobile) -->
+            <div class="menu-icon">
+                <svg class="hamburger-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16">
+                    </path>
+                </svg>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Conteneur des vidéos enchaînées -->
+
+    <!-- Vidéos enchaînées avec texte au centre -->
+    <div class="video-container">
+        <div class="video-slide-container">
+            <video id="video1" class="video-slide" autoplay muted>
+                <source src="video1.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div class="video-text">
+                <h1>Très Chic</h1>
+            </div>
+        </div>
+
+        <div class="video-slide-container" style="display: none;">
+            <video id="video2" class="video-slide" muted>
+                <source src="video2.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div class="video-text">
+                <h1>Élégance</h1>
+            </div>
+        </div>
+
+        <div class="video-slide-container" style="display: none;">
+            <video id="video3" class="video-slide" muted>
+                <source src="video3.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div class="video-text">
+                <h1>Sophistication</h1>
+            </div>
+        </div>
+    </div>
+
+    <!-- Carrousel Swiper -->
+    <!-- <div class="slider-container">
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                
+                <div class="swiper-slide">
+                    <img src="image1.jpg" alt="Image 1">
+                    <div class="overlay"></div>
+                    <div class="slider-text">
+                        <h1>Très Chic</h1>
+                    </div>
+                </div>
+                
+                <div class="swiper-slide">
+                    <img src="image2.webp" alt="Image 2">
+                    <div class="overlay"></div>
+                    <div class="slider-text">
+                        <h1>Élégance</h1>
+                    </div>
+                </div>
+                
+                <div class="swiper-slide">
+                    <img src="image3.webp" alt="Image 3">
+                    <div class="overlay"></div>
+                    <div class="slider-text">
+                        <h1>Sophistication</h1>
+                    </div>
+                </div>
+            </div>
+
+            
+            <div class="swiper-pagination"></div>
+
+                        <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+        </div>
+    </div> -->
+
+
+    <!-- bloc pagination -->
+    <div class="categories">
+        <div class="category">
+            <img src="image/iconerobe.png" alt="Robes de mariée icon">
+            <p>Robes de mariée Princesse et évasée</p>
+        </div>
+        <div class="category">
+            <img src="image/iconerobe.png" alt="Robes de mariée icon">
+            <p>Robes de mariée Princesse et évasée</p>
+        </div>
+        <div class="category">
+            <img src="image/iconerobe.png" alt="Robes de mariée icon">
+            <p>Robes de mariée Princesse et évasée</p>
+        </div>
+        <div class="category">
+            <img src="image/iconerobe.png" alt="Robes de mariée icon">
+            <p>Robes de mariée Princesse et évasée</p>
+        </div>
+    </div>
+
+    <!-- bloc pressentation -->
+    <div class="presentation-section">
+        <h1>Robes De Mariée Toulouse </h1>
+        <img src="image/iconerobe.png" alt="Robes de mariée icon">
+        <p>La boutique de mariage est conçue comme un showroom privé à Seysses près de Toulouse
+            Nous sommes heureux de vous accompagner pour
+
+            la confection des robes de mariée SUR-MESURE et PERSONNALISABLE jusqu'à la taille 44.
+            Le tarif d'une robe de mariée sur-mesure se situe entre 750€ et 1850€</p>
+        <button class="styled-button">
+            Voir nos robes
+        </button>
+        <!-- gallerie -->
+
+        
+        
+        
+        
+    </div>
+
+
+    <div class="bestsellers bg-brown-light ">
+        <h2 class="text-center w-full">Meilleures ventes chez Monica Mariage</h2>
+        <div class="gallery-container">
+            <div class="gallery">
+                <div class="gallery-item">
+                    <img src="./presentation/image1.jpg" alt="Déesse">
+                    <p>Déesse</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="./presentation/image2.jpg" alt="Effie">
+                    <p>Effie</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="./presentation/image3.jpg" alt="Emery">
+                    <p>Emery</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="./presentation/image4.jpg" alt="Image 4">
+                    <p>Image 4</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="justify-content w-full textgallery">
+            <p>La boutique de mariage est conçue comme un showroom privé à Seysses près de Toulouse
+                Nous sommes heureux de vous accompagner pour
+    
+                la confection des robes de mariée SUR-MESURE et PERSONNALISABLE jusqu'à la taille 44.
+                Le tarif d'une robe de mariée sur-mesure se situe entre 750€ et 1850€</p>
+            <button class="styled-button">
+                Voir plus de robes
+            </button>
+        </div>
+        
+    </div>
+    
+    <div class="bestsellers bg-brown-light ">
+        <h2 class="text-center w-full">Destockage</h2>
+        <div class="gallery-container">
+            <div class="gallery">
+                <div class="gallery-item">
+                    <img src="image/destockage/image1.png" alt="Déesse">
+                    <p>Déesse</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="image/destockage/image2.jpg" alt="Effie">
+                    <p>Effie</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="image/destockage/image3.jpg" alt="Emery">
+                    <p>Emery</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="image/destockage/image4.jpg" alt="Image 4">
+                    <p>Image 4</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="justify-content w-full textgallery">
+            <p>La boutique de mariage est conçue comme un showroom privé à Seysses près de Toulouse
+                Nous sommes heureux de vous accompagner pour
+    
+                la confection des robes de mariée SUR-MESURE et PERSONNALISABLE jusqu'à la taille 44.
+                Le tarif d'une robe de mariée sur-mesure se situe entre 750€ et 1850€</p>
+            <button class="styled-button">
+                Voir plus de robes
+            </button>
+        </div>
+        
+    </div>
+    
+    <!-- section showroom -->
+    <section class="showroom-section">
+        <div class="showroom-container">
+            <!-- Colonne Image -->
+            <div class="showroom-image">
+                <img src="double/2023-11-28.jpg" alt="LM Showroom">
+            </div>
+    
+            <!-- Colonne Texte -->
+            <div class="showroom-text">
+                <div >
+
+                    <h4>Le Showroom</h4>
+                    <h2>LM Showroom</h2>
+                    <p>
+                        LM Showroom situé à Agen est un concept store mariage créé en 2023 par Sandrine Bianco.
+                        Vous y trouverez plus d'une centaine de robes de mariée signées par des créateurs Européens
+                        et d'Outre Atlantique de renom, des tenues pour les mamans, les demoiselles d'honneur et les enfants,
+                        ainsi que des chaussures et des accessoires, sélectionnés avec la plus grande attention pour leur qualité,
+                        leur design et leur confort.
+                    </p>
+                    <a href="#" class="btn">En savoir plus</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="showroom-section">
+        <div class="showroom-container">
+            <!-- Colonne Image -->
+           
+    
+            <!-- Colonne Texte -->
+            <div class="showroom-text">
+                <div class=" padding-left padding-right">
+
+                    <h4>Le Showroom</h4>
+                    <h2>LM Showroom</h2>
+                    <p>
+                        LM Showroom situé à Agen est un concept store mariage créé en 2023 par Sandrine Bianco.
+                        Vous y trouverez plus d'une centaine de robes de mariée signées par des créateurs Européens
+                        et d'Outre Atlantique de renom, des tenues pour les mamans, les demoiselles d'honneur et les enfants,
+                        ainsi que des chaussures et des accessoires, sélectionnés avec la plus grande attention pour leur qualité,
+                        leur design et leur confort.
+                    </p>
+                    <a href="#" class="btn">En savoir plus</a>
+                </div>
+            </div>
+            <div class="showroom-image">
+                <img src="double/2023-11-28.jpg" alt="LM Showroom">
+            </div>
+        </div>
+    </section>
+    
+    
+    <footer class="site-footer">
+        <div class="footer-container">
+            <!-- Logo et informations de contact -->
+            <div class="footer-column">
+                <img src="path-to-logo.png" alt="LM Showroom Logo" class="footer-logo">
+                <p>+33 6 19 72 75 40</p>
+                <p>monicamariage@hotmail.com</p>
+            </div>
+    
+            <!-- Informations -->
+            <div class="footer-column">
+                <h4>Informations</h4>
+                <ul>
+                    <li><a href="#">Le showroom</a></li>
+                    <li><a href="#">Essayages</a></li>
+                    <li><a href="#">Trouver le showroom</a></li>
+                    <li><a href="#">Prendre rendez-vous</a></li>
+                </ul>
+            </div>
+    
+            <!-- Produits -->
+            <div class="footer-column">
+                <h4>Nos Produits</h4>
+                <ul>
+                    <li><a href="#">Robes de mariée</a></li>
+                    <li><a href="#">Tenues de soirée</a></li>
+                    <li><a href="#">Robes de cortège</a></li>
+                    <li><a href="#">Accessoires</a></li>
+                </ul>
+            </div>
+    
+            <!-- Suivre et mentions légales -->
+            <div class="footer-column">
+                <h4>Nous suivre</h4>
+                <div class="social-icons">
+                    <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-tiktok"></i></a>
+                <a target="_blank" href="https://www.facebook.com/MonicaMariage31/?locale=fr_FR" class="social-icon"><i class="fab fa-facebook"></i></a>
+                <a target="_blank" href="https://www.instagram.com/monicamariage_robedemariee31/?hl=fr" class="social-icon"><i class="fab fa-pinterest"></i></a>
+                </div>
+            </div>
+        </div>
+    
+        <div class="footer-bottom">
+            <p>&copy; 2023 - 2024 Monica Mariage Showroom – Tous droits réservés</p>
+            <p><a href="#">Mentions légales</a> | <a href="#">Conditions générales de vente</a></p>
+        </div>
+    </footer>
+    
+    
+    
+
+
+
+
+
+    <!-- Swiper.js -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+    <!-- Script pour gérer le carrousel Swiper -->
+    <script>
+        var swiper = new Swiper('.swiper-container', {
+            loop: true,
+            autoplay: {
+                delay: 5000,
+            },
+            effect: 'fade',
+            fadeEffect: {
+                crossFade: true
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            }
+        });
+    </script>
+
+
+    <!-- JavaScript pour l'enchaînement des vidéos -->
+    <script>
+        var videos = document.querySelectorAll('.video-slide');
+        var slides = document.querySelectorAll('.video-slide-container');
+        var currentVideoIndex = 0;
+
+        function playNextVideo() {
+            // Masquer la vidéo et le texte actuel
+            slides[currentVideoIndex].style.display = 'none';
+
+            // Passer à la vidéo suivante
+            currentVideoIndex = (currentVideoIndex + 1) % slides.length;
+
+            // Afficher et jouer la prochaine vidéo avec son texte
+            slides[currentVideoIndex].style.display = 'block';
+            videos[currentVideoIndex].play();
+        }
+
+        // Ajouter un event listener pour chaque vidéo pour détecter la fin et passer à la suivante
+        videos.forEach(function (video) {
+            video.addEventListener('ended', playNextVideo);
+        });
+
+        // Lancer la première vidéo automatiquement au chargement
+        window.onload = function () {
+            videos[currentVideoIndex].play();
+        };
+    </script>
+
+
+</body>
+
+</html>

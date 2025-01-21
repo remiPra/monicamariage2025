@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slider style Tinder amélioré</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+        }
+        .card-container {
+            width: 300px;
+            height: 450px;
+            position: relative;
+            overflow: hidden;
+        }
+        .card {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+            overflow: hidden;
+            cursor: grab;
+            transition: transform 0.3s;
+        }
+        .card:active {
+            cursor: grabbing;
+        }
+        .card-image {
+            width: 100%;
+            height: 350px;
+            position: relative;
+        }
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .like-icon {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 24px;
+            color: white;
+            text-shadow: 0 0 3px rgba(0,0,0,0.5);
+        }
+        .card-info {
+            padding: 10px;
+            height: 80px;
+            background-color: white;
+        }
+        .card-info h2 {
+            margin: 0 0 5px 0;
+            font-size: 18px;
+        }
+        .card-info p {
+            margin: 0;
+            font-size: 14px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="card-container">
+        <div class="card">
+            <div class="card-image">
+                <img src="https://placehold.co/300x350.jpg" alt="Image 1">
+                <i class="like-icon fas fa-heart"></i>
+            </div>
+            <div class="card-info">
+                <h2>Titre de la carte 1</h2>
+                <p>Description de la carte 1</p>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-image">
+                <img src="https://placehold.co/300x350.jpg" alt="Image 2">
+                <i class="like-icon fas fa-heart"></i>
+            </div>
+            <div class="card-info">
+                <h2>Titre de la carte 2</h2>
+                <p>Description de la carte 2</p>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-image">
+                <img src="https://placehold.co/300x350.jpg" alt="Image 3">
+                <i class="like-icon fas fa-heart"></i>
+            </div>
+            <div class="card-info">
+                <h2>Titre de la carte 3</h2>
+                <p>Description de la carte 3</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const cards = document.querySelectorAll('.card');
+        let currentCardIndex = cards.length - 1;
+
+        cards.forEach((card, index) => {
+            card.style.zIndex = cards.length - index;
+            
+            let startX, moveX;
+            let isDragging = false;
+
+            card.addEventListener('mousedown', startDrag);
+            card.addEventListener('touchstart', startDrag);
+
+            card.addEventListener('mousemove', drag);
+            card.addEventListener('touchmove', drag);
+
+            card.addEventListener('mouseup', endDrag);
+            card.addEventListener('mouseleave', endDrag);
+            card.addEventListener('touchend', endDrag);
+
+            function startDrag(e) {
+                isDragging = true;
+                startX = e.type.includes('mouse') ? e.clientX : e.touches[0].clientX;
+                this.style.transition = 'none';
+            }
+
+            function drag(e) {
+                if (!isDragging) return;
+                e.preventDefault();
+                moveX = e.type.includes('mouse') ? e.clientX : e.touches[0].clientX;
+                const walk = moveX - startX;
+                this.style.transform = `translateX(${walk}px) rotate(${walk * 0.1}deg)`;
+
+                const likeIcon = this.querySelector('.like-icon');
+                if (walk > 50) {
+                    likeIcon.style.color = '#00ff00';
+                } else if (walk < -50) {
+                    likeIcon.style.color = '#ff0000';
+                } else {
+                    likeIcon.style.color = 'white';
+                }
+            }
+
+            function endDrag() {
+                isDragging = false;
+                this.style.transition = 'transform 0.3s';
+                
+                const walk = moveX - startX;
+                if (walk > 100 || walk < -100) {
+                    const direction = walk > 0 ? 1 : -1;
+                    this.style.transform = `translateX(${direction * window.innerWidth}px) rotate(${90 * direction}deg)`;
+                    setTimeout(() => {
+                        this.remove();
+                        currentCardIndex--;
+                        if (currentCardIndex < 0) {
+                            alert('Plus de cartes !');
+                        }
+                    }, 300);
+                } else {
+                    this.style.transform = '';
+                    this.querySelector('.like-icon').style.color = 'white';
+                }
+            }
+        });
+    </script>
+</body>
+</html>

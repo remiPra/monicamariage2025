@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adèle - Robe de Mariée</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        header {
+            width: 100%;
+            text-align: center;
+            padding: 20px 0;
+            color: #b8860b;
+        }
+
+        .product-image {
+            flex: 1;
+            padding-right: 20px;
+        }
+
+        .product-image img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .product-details {
+            flex: 1;
+            padding-left: 50px;
+        }
+
+        h1 {
+            color: #333;
+            font-size: 2.5em;
+        }
+
+        p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .size-selector {
+            margin-top: 20px;
+        }
+
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+        }
+
+        .cta-button {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background-color: #e0d8d6;
+            color: #333;
+            text-align: center;
+            text-decoration: none;
+            margin-top: 20px;
+            border: none;
+            cursor: pointer;
+        }
+
+        /* slider */
+        .slider {
+            position: relative;
+            width: 100%;
+            height: 600px;
+            /* Ajustez selon vos besoins */
+            overflow: hidden;
+        }
+
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 500px;
+            opacity: 0;
+
+            transition: opacity 4s ease-in;
+            /* Augmentez à 1s ou plus */
+
+        }
+
+        .slide.active {
+            opacity: 1;
+        }
+
+        .prev,
+        .next {
+           
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .prev {
+            left: 10px;
+        }
+
+        .next {
+            right: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h2>showroom</h2>
+    </header>
+    <div class="container">
+        <div class="product-image">
+            <div class="slider">
+                <img src="./image/examplerobemaquette.webp" alt="Robe de mariée Adèle 1" class="slide active">
+                <img src="./image/examplerobemaquette.webp" alt="Robe de mariée Adèle 2" class="slide">
+                <img src="./image/examplerobemaquette.webp" alt="Robe de mariée Adèle 3" class="slide">
+            </div>
+            <div>
+                <button class="prev">Précédent</button>
+                <button class="next">Suivant</button>
+
+            </div>
+        </div>
+        <div class="product-details">
+            <h1>Adèle</h1>
+            <p>Découvrez notre bustier avec ses mancherons en dentelles accompagné d'une jupe scintillante en tulle. La
+                silhouette féerique et le tulle vaporeux font de cette robe un choix enchanteur pour votre jour spécial.
+                Soyez la reine de votre conte de fées avec cette création resplendissante ! De plus, vous avez la
+                possibilité de personnaliser votre tenue en associant le bustier à une autre jupe en mikado ou en tulle
+                agrémentée de dentelle. Faites de votre mariage un moment inoubliable avec cette robe magnifique.</p>
+            <div class="size-selector">
+                <label for="size">TAILLE</label>
+                <select id="size" name="size">
+                    <option value="">Choisir une option</option>
+                    <!-- Ajoutez ici les options de taille -->
+                </select>
+            </div>
+            <a href="#" class="cta-button">PRENDRE RENDEZ-VOUS</a>
+        </div>
+        
+        
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const slides = document.querySelectorAll('.slide');
+            const prevButton = document.querySelector('.prev');
+            const nextButton = document.querySelector('.next');
+            let currentSlide = 0;
+
+            function showSlide(n) {
+                slides[currentSlide].classList.remove('active');
+                currentSlide = (n + slides.length) % slides.length;
+                slides[currentSlide].classList.add('active');
+            }
+
+            function nextSlide() {
+                showSlide(currentSlide + 1);
+            }
+
+            function prevSlide() {
+                showSlide(currentSlide - 1);
+            }
+            const slider = document.querySelector('.slider');
+
+            slider.addEventListener('mouseenter', () => {
+                clearInterval(slideInterval);
+            });
+
+            slider.addEventListener('mouseleave', () => {
+                slideInterval = setInterval(nextSlide, 8000);
+            });
+
+            let slideInterval = setInterval(nextSlide, 8000);
+            nextButton.addEventListener('click', nextSlide);
+            prevButton.addEventListener('click', prevSlide);
+
+            // Optionnel : Défilement automatique
+            setInterval(nextSlide, 6000); // Change l'image toutes les 5 secondes
+        });
+    </script>
+</body>
+
+</html>
