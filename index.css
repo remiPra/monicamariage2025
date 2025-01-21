@@ -5,6 +5,11 @@
     padding: 0;
 }
 
+.mt-100 {
+    margin-top: 100px;
+}
+
+
 body {
     font-family: Arial, sans-serif;
     background-color: #ffffff;
@@ -12,20 +17,24 @@ body {
 
 /* tailwind css */
 .flex {
-display: flex;
-} 
-.justify-content {
-justify-content: center;
-} 
-.w-full {
-width: 100%;
+    display: flex;
 }
+
+.justify-content {
+    justify-content: center;
+}
+
+.w-full {
+    width: 100%;
+}
+
 .text-center {
     text-align: center;
 }
+
 .bg-brown-light {
     /* background: linear-gradient(to bottom, #FDE9E6     0%, #ecdbcd 100%); */
-    background: linear-gradient(to bottom, #ffffff     0%, #FDE9E6 100%);
+    background: linear-gradient(to bottom, #ffffff 0%, #FDE9E6 100%);
 
     /* background-color: #F5D2B5; */
 }
@@ -33,10 +42,14 @@ width: 100%;
 
 
 /* Appliquer la police Playfair Display */
-h1, h2, h3, a {
+h1,
+h2,
+h3,
+a {
     /* font-family: 'Poppins', serif; */
     font-family: 'Playfair Display', serif;
 }
+
 h1 {
     color: #af7749;
     font-family: 'Playfair Display', serif;
@@ -44,46 +57,55 @@ h1 {
 
 
 .logocolor {
-    color:"#af7749;"
+    color: "#af7749;"
 }
+
 .logocolor1 {
-    color:"#af7749;"
+    color: "#af7749;"
 }
 
 /* Navigation */
 .navigation {
     height: 80px;
     display: flex;
-    position: fixed;top: 0px;
+    position: fixed;
+    top: 0px;
     width: 100%;
     z-index: 33;
     justify-content: space-between;
     align-items: center;
     padding: 20px;
-    background-color: #FDE9E6; /* Rose pâle */
+    background-color: #FDE9E6;
+    /* Rose pâle */
 
 }
 
 
-.nav-left, .nav-right {
+.nav-left,
+.nav-right {
     display: flex;
     list-style: none;
 }
 
-.nav-left li, .nav-right a {
+.nav-left li,
+.nav-right a {
     margin-right: 20px;
 }
 
-.nav-left a, .nav-right a {
+.nav-left a,
+.nav-right a {
     /* text-transform: uppercase; */
     /* font-weight: bold; */
-    color: #af7749; /* Gris foncé */
+    color: #af7749;
+    /* Gris foncé */
     text-decoration: none;
     transition: color 0.3s ease;
 }
 
-.nav-left a:hover, .nav-right a:hover {
-    color: #F5D2B5; /* Beige clair au hover */
+.nav-left a:hover,
+.nav-right a:hover {
+    color: #F5D2B5;
+    /* Beige clair au hover */
 }
 
 /* Logo */
@@ -94,12 +116,13 @@ h1 {
 .logo-main {
     font-size: 2rem;
     font-weight: bold;
-    
+
 }
 
 .logo-sub {
     font-size: 1rem;
-    color: #666; /* Gris plus clair */
+    color: #666;
+    /* Gris plus clair */
 }
 
 
@@ -119,40 +142,44 @@ h1 {
     align-items: center;
     padding: 20px;
     background-color: #fff;
-  }
-  
-  .category {
+}
+
+.category {
     text-align: center;
     width: 150px;
-  }
-  
-  .category img {
-    width: 105px; /* Adjust size of the icon */
+}
+
+.category img {
+    width: 105px;
+    /* Adjust size of the icon */
     height: auto;
     margin-bottom: 10px;
-  }
-  
-  .category p {
-    font-family: 'Poppins', sans-serif; /* Or any font of your choice */
+}
+
+.category p {
+    font-family: 'Poppins', sans-serif;
+    /* Or any font of your choice */
     font-size: 16px;
     color: #000;
-  }
+}
 
 
 
-  /* presenttaion */
-  .presentation-section {
+/* presenttaion */
+.presentation-section {
     text-align: center;
     padding: 50px 20px;
-    background: linear-gradient(to bottom, #FDE9E6     0%, #ffffff 100%);
+    background: linear-gradient(to bottom, #FDE9E6 0%, #ffffff 100%);
 }
+
 .presentation-section img {
     width: 150px;
     border-radius: 50%;
 }
 
 .presentation-section h1 {
-    font-family: 'Cherilyn', sans-serif; /* Remplacer par la police de ton choix */
+    font-family: 'Cherilyn', sans-serif;
+    /* Remplacer par la police de ton choix */
     font-size: 36px;
     font-weight: 600;
     /* color: #000; */
@@ -162,9 +189,10 @@ h1 {
 }
 
 .presentation-section p {
-    font-family: 'Poppins', sans-serif; /* Police pour le texte */
+    font-family: 'Poppins', sans-serif;
+    /* Police pour le texte */
     font-size: 18px;
-    color:black;
+    color: black;
     /* color:#c28452; */
     line-height: 1.6;
     max-width: 800px;
@@ -172,7 +200,7 @@ h1 {
     padding-bottom: 50px;
 }
 
-  
+
 
 /* Carrousel */
 .slider-container {
@@ -201,7 +229,8 @@ h1 {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(253, 233, 230, 0.1); /* Rose pâle avec opacité */
+    background-color: rgba(253, 233, 230, 0.1);
+    /* Rose pâle avec opacité */
     z-index: 1;
 }
 
@@ -216,6 +245,7 @@ h1 {
     font-size: 3rem;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
+
 /* Conteneur des vidéos */
 .video-container {
     width: 100%;
@@ -253,25 +283,35 @@ h1 {
 
 /* boutton */
 .styled-button {
-    background-color: #af7749; /* Couleur primaire */
-    color: #fff; /* Texte blanc */
-    border: none; /* Retire la bordure par défaut */
-    padding: 12px 24px; /* Espacement interne pour agrandir le bouton */
-    border-radius: 8px; /* Coins arrondis */
-    font-family: 'Poppins', sans-serif; /* Police du texte */
+    background-color: #af7749;
+    /* Couleur primaire */
+    color: #fff;
+    /* Texte blanc */
+    border: none;
+    /* Retire la bordure par défaut */
+    padding: 12px 24px;
+    /* Espacement interne pour agrandir le bouton */
+    border-radius: 8px;
+    /* Coins arrondis */
+    font-family: 'Poppins', sans-serif;
+    /* Police du texte */
     font-size: 16px;
     font-weight: 500;
     max-width: 200px;
     margin: auto;
     cursor: pointer;
-    transition: all 0.3s ease; /* Transition pour le hover */
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Box shadow pour effet d'ombre */
+    transition: all 0.3s ease;
+    /* Transition pour le hover */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    /* Box shadow pour effet d'ombre */
     margin-bottom: 50px;
 }
 
 .styled-button:hover {
-    background-color: #925c36; /* Couleur plus foncée au hover */
-    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.2); /* Ombre plus marquée au hover */
+    background-color: #925c36;
+    /* Couleur plus foncée au hover */
+    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.2);
+    /* Ombre plus marquée au hover */
 }
 
 
@@ -287,10 +327,12 @@ h1 {
 
 .gallery {
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* 4 colonnes sur grands écrans */
+    grid-template-columns: repeat(4, 1fr);
+    /* 4 colonnes sur grands écrans */
     gap: 20px;
     width: 100%;
-    max-width: 1200px; /* Limite la largeur totale */
+    max-width: 1200px;
+    /* Limite la largeur totale */
 }
 
 .gallery-item {
@@ -302,7 +344,8 @@ h1 {
     height: auto;
     object-fit: cover;
     border-radius: 5px;
-    max-height: 600px; /* Ajuste la hauteur des images */
+    max-height: 600px;
+    /* Ajuste la hauteur des images */
 }
 
 .gallery-item p {
@@ -315,14 +358,16 @@ h1 {
 /* Responsive pour les tablettes (écrans moyens) */
 @media (max-width: 768px) {
     .gallery {
-        grid-template-columns: repeat(2, 1fr); /* 2 colonnes sur les écrans moyens */
+        grid-template-columns: repeat(2, 1fr);
+        /* 2 colonnes sur les écrans moyens */
     }
 }
 
 /* Responsive pour les petits écrans (mobiles) */
 @media (max-width: 480px) {
     .gallery {
-        grid-template-columns: 1fr; /* 1 colonne sur les petits écrans */
+        grid-template-columns: 1fr;
+        /* 1 colonne sur les petits écrans */
     }
 }
 
@@ -333,15 +378,18 @@ h1 {
     font-size: 35px;
     margin-bottom: 30px;
 }
+
 .textgallery {
-    display:flex;
-    flex-direction:column;
+    display: flex;
+    flex-direction: column;
 
 }
+
 .textgallery p {
-    font-family: 'Poppins', sans-serif; /* Police pour le texte */
+    font-family: 'Poppins', sans-serif;
+    /* Police pour le texte */
     font-size: 18px;
-    color:black;
+    color: black;
     /* color:#c28452; */
     line-height: 1.6;
     max-width: 800px;
@@ -351,6 +399,7 @@ h1 {
     margin-top: 20px;
     margin-bottom: 20px;
 }
+
 /* 
 .textgallery button 
 {max-width: 100px;} */
@@ -360,12 +409,12 @@ h1 {
 
 /* Media query pour les écrans plus petits (mobile friendly) */
 @media (max-width: 768px) {
-    
-     /* Masquer la navigation pour les grands écrans */
-     .navigation {
+
+    /* Masquer la navigation pour les grands écrans */
+    .navigation {
         display: none;
     }
-    
+
     /* Afficher le menu mobile sur petit écran */
     .navigation-mobile {
         display: flex;
@@ -392,7 +441,7 @@ h1 {
 
     /* videos */
     .video-container {
-        margin-top:0px
+        margin-top: 0px
     }
 }
 
@@ -400,7 +449,8 @@ h1 {
 /* Section Showroom */
 .showroom-section {
     /* padding: 50px; */
-    background-color: #f9f9f9; /* Couleur de fond pour la section */
+    background-color: #f9f9f9;
+    /* Couleur de fond pour la section */
 }
 
 .showroom-container {
@@ -426,18 +476,22 @@ h1 {
 /* Colonne Texte */
 .showroom-text {
     flex: 1;
-    
+
 }
+
 .padding-left {
     padding-left: 50px;
 }
+
 .padding-right {
     padding-right: 50px
 }
+
 .showroom-text h4 {
     font-family: 'Poppins', sans-serif;
     font-size: 14px;
-    color: #999; /* Couleur pour le sous-titre */
+    color: #999;
+    /* Couleur pour le sous-titre */
     margin-bottom: 10px;
     text-transform: uppercase;
 }
@@ -470,7 +524,8 @@ h1 {
 }
 
 .btn:hover {
-    background-color: #af7749; /* Changement de couleur au survol */
+    background-color: #af7749;
+    /* Changement de couleur au survol */
 }
 
 /* Responsive Design */
@@ -489,10 +544,12 @@ h1 {
         padding-left: 0;
     }
 }
+
 /* Footer général */
 .site-footer {
     background-color: #925c36;
-    color: #fff; /* Texte blanc pour bien contraster */
+    color: #fff;
+    /* Texte blanc pour bien contraster */
     padding: 40px 20px;
     font-family: 'Poppins', sans-serif;
 }
@@ -518,7 +575,8 @@ h1 {
 
 .footer-column h4 {
     font-size: 18px;
-    color: #af7749; /* Couleur de titre en doré/beige */
+    color: #af7749;
+    /* Couleur de titre en doré/beige */
     margin-bottom: 20px;
 }
 
@@ -538,7 +596,8 @@ h1 {
 }
 
 .footer-column ul li a:hover {
-    color: #af7749; /* Changement de couleur au survol */
+    color: #af7749;
+    /* Changement de couleur au survol */
 }
 
 /* Icônes de réseaux sociaux */
@@ -549,12 +608,14 @@ h1 {
 .social-icons img {
     width: 30px;
     height: 30px;
-    filter: invert(100%); /* Pour passer les icônes en blanc */
+    filter: invert(100%);
+    /* Pour passer les icônes en blanc */
     transition: filter 0.3s ease;
 }
 
 .social-icons a:hover img {
-    filter: invert(60%) sepia(50%) saturate(200%) hue-rotate(-20deg); /* Changement de couleur au survol */
+    filter: invert(60%) sepia(50%) saturate(200%) hue-rotate(-20deg);
+    /* Changement de couleur au survol */
 }
 
 /* Footer Bottom (Copyright et mentions légales) */
@@ -591,17 +652,21 @@ h1 {
 /* Icônes de réseaux sociaux */
 .social-icons {
     display: flex;
-    gap: 15px; /* Espacement entre les icônes */
+    gap: 15px;
+    /* Espacement entre les icônes */
 }
 
 .social-icon {
-    color: #fff; /* Couleur de base des icônes */
-    font-size: 24px; /* Taille des icônes */
+    color: #fff;
+    /* Couleur de base des icônes */
+    font-size: 24px;
+    /* Taille des icônes */
     transition: color 0.3s ease;
 }
 
 .social-icon:hover {
-    color: #af7749; /* Couleur de survol */
+    color: #af7749;
+    /* Couleur de survol */
 }
 
 /* Responsive design */
@@ -615,4 +680,3 @@ h1 {
         margin: 20px 0;
     }
 }
-

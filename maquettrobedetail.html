@@ -5,6 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Adèle - Robe de Mariée</title>
+
+    <link rel="stylesheet" href="index.css">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -19,9 +23,10 @@
             padding: 20px;
             display: flex;
             flex-wrap: wrap;
+            margin-top: 121px;
         }
 
-        header {
+        h2 {
             width: 100%;
             text-align: center;
             padding: 20px 0;
@@ -123,10 +128,61 @@
 </head>
 
 <body>
-    <header>
-        <h2>showroom</h2>
+   
+        
+   
+     <!-- Header -->
+     <header>
+        <nav class="navigation ">
+            <!-- Menu de gauche -->
+            <ul class="nav-left">
+                <li><a href="#">Robes de Mariée</a></li>
+                <li><a href="#">Tenues de Soirée</a></li>
+                <li><a href="#">Robes de Cortège</a></li>
+            </ul>
+
+            <!-- Logo du milieu -->
+            <div class="nav-logo">
+                <h1>
+                    <span class="logo-main logocolor">Monica</span>
+                    <span class="logo-sub logocolor1">Mariage</span>
+                </h1>
+            </div>
+
+            <!-- Menu de droite -->
+            <div class="nav-right">
+                <a href="#">Prendre Rendez-vous</a>
+                <a href="#">Trouver le showroom</a>
+                <button class="search-btn">
+                    <svg class="search-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path d="M21 21l-4.35-4.35M15 11a4 4 0 10-8 0 4 4 0 008 0z"></path>
+                    </svg>
+                </button>
+            </div>
+        </nav>
+        <nav class="navigation-mobile">
+            <!-- Logo à gauche -->
+            <div class="nav-logo">
+                <h1>
+                    <span class="logo-main">Monica</span>
+                    <span class="logo-sub">Mariage</span>
+                </h1>
+            </div>
+
+
+
+            <!-- Icône de menu (visible sur mobile) -->
+            <div class="menu-icon">
+                <svg class="hamburger-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16">
+                    </path>
+                </svg>
+            </div>
+        </nav>
     </header>
-    <div class="container">
+
+    <div class="container mt-100">
+        <!-- <h2>showroom</h2> -->
         <div class="product-image">
             <div class="slider">
                 <img src="./image/examplerobemaquette.webp" alt="Robe de mariée Adèle 1" class="slide active">
@@ -141,7 +197,7 @@
         </div>
         <div class="product-details">
             <h1>Adèle</h1>
-            <p>Découvrez notre bustier avec ses mancherons en dentelles accompagné d'une jupe scintillante en tulle. La
+            <p >Découvrez notre bustier avec ses mancherons en dentelles accompagné d'une jupe scintillante en tulle. La
                 silhouette féerique et le tulle vaporeux font de cette robe un choix enchanteur pour votre jour spécial.
                 Soyez la reine de votre conte de fées avec cette création resplendissante ! De plus, vous avez la
                 possibilité de personnaliser votre tenue en associant le bustier à une autre jupe en mikado ou en tulle
